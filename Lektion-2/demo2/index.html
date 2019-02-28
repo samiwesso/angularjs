@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - demo 2</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="todoApp" >
+    <div ng-controller="todoController">
+
+        <h4>Min Todo-Lista</h4>
+
+        <form ng-submit="addTodo()">
+                <input type="text" ng-model="todoInput" placeholder="Lägg till...">
+                <input type="submit" value="Lägg till">
+            </form>
+            
+            <br>
+            <hr>
+            <h5>Min Todo-Lista</h5>
+            
+            <div ng-repeat="t in todoList">
+                <input type="checkbox" ng-model="t.done"> <span ng-bind="t.text"></span>
+            </div>
+            
+            <p><button ng-click="removeTodos()">Ta bort markerade</button></p>
+
+    </div>
+</body>
+</html>

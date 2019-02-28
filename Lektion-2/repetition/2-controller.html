@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - 2</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    
+</head>
+<body ng-app="angularApp">
+    
+    <div ng-controller="personController">
+        <!-- Expression -->
+        <p><strong>Vänliga hälsningar,</strong></p>
+        <p>{{ fullname() }}</p>    
+    </div>
+
+    <div ng-controller="companyController">
+        <!-- Binding -->
+        <span ng-bind="companyname"></span>    
+    </div>
+
+    <script>
+        
+        // var app =  angular.module("angularApp", []);    
+
+        // // Modell = personController$scope
+        // app.controller("personController", function($scope) {            
+        //     $scope.firstname = "Hans";
+            
+        // });
+
+        // // Modell = companyController$scope
+        // app.controller("companyController", function($scope) {            
+        //     $scope.companyname = "EPN Sverige AB";
+        // });
+
+
+
+
+        // Alternativt använd denna om du känner att detta är mer din stil att skriva
+        angular.module("angularApp", [])
+        .controller("personController", function($scope) {            
+            $scope.firstname = "Hans";
+            $scope.middlename = "Bengt Lennart";
+            $scope.lastname = "Mattin-Lassei";
+
+            $scope.fullname = function() {
+                return $scope.firstname + " " + $scope.middlename + " " + $scope.lastname
+            }
+        })
+        .controller("companyController", function($scope) {            
+            $scope.companyname = "EPN Sverige AB";
+        })
+
+
+    </script>
+
+</body>
+</html>

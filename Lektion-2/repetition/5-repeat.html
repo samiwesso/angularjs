@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - 5</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    
+</head>
+<body>
+    
+    <div ng-app="angularApp">
+        <div ng-controller="userController">
+            <ul>
+                <li ng-repeat="item in namelist">
+                    <span>{{ item.name }}</span>
+                    <span>{{ item.email }}</span>
+                </li>
+            </ul>
+
+            <table>
+                <tr ng-repeat="item in namelist">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.email }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        
+        angular.module("angularApp", [])
+        .controller("userController", function($scope) {
+            $scope.namelist = [
+                { name: "Hans", email: "hans@epndata.com"},
+                { name: "Anna", email: "anna@epndata.com"}
+            ]
+        });
+
+    </script>
+
+</body>
+</html>

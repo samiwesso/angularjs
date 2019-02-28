@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - demo 1</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="demoApp">
+    <div>
+        <div ng-controller="ratingController">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Likes</th>
+                        <th>Dislikes</th>
+                        <th>Options</th>
+                    </tr>               
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ likes }}</td>
+                        <td>{{ dislikes }}</td>
+                        <td>
+                            <input type="button" value="Like" ng-click="incrementLikes()">
+                            <input type="button" value="Dislike" ng-click="incrementDislikes()">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div ng-controller="cartController">
+                <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th></th>
+                            </tr>               
+                        </thead>
+        
+                        <tbody>
+                            <tr ng-repeat="product in products">
+                                <td>{{ product.productname }}</td>
+                                <td>{{ product.quantity }}</td>
+                                <td>
+                                    <input type="button" value="+" ng-click="increment(product)">
+                                    <input type="button" value="-" ng-click="decrement(product)">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>            
+        </div>
+    </div>
+</body>
+</html>

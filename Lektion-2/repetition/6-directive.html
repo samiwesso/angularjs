@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - 6</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    
+</head>
+<body>
+    
+
+
+
+
+
+
+    <div ng-app="angularApp" >
+
+        <copyright />
+
+    </div>
+
+
+    <script> 
+        var app = angular.module("angularApp", []);
+        var dt = new Date();
+        app.directive("copyright", function() {
+            return {
+                restrict: "E",
+                template: "&copy; " + dt.getFullYear() + " EPN Sverige AB."
+            };
+        });
+    </script>
+
+</body>
+</html>
