@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - </title>
+    
+    <link rel="stylesheet" href="css/layout.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body ng-app="filterApp" ng-controller="filterController">
+    
+    <div>
+        Visa antal rader: <input type="number" step="1" min="1" max="3" ng-model="rowLimit">
+        <br>
+        <br>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produktnamn</th>
+                <th>Beskrivning</th>
+                <th>Pris</th>
+                <th>I lager</th>
+                <th>Senast kollat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products | limitTo:rowLimit">
+                <td>{{ product.productname | uppercase }}</td>
+                <td>{{ product.shortdescription  }}</td>
+                <td>{{ product.price | currency: "kr" }}</td>
+                <td>{{ product.instock | number:0 }}</td>
+                <td>{{ product.instockdate | date: "yyyy-MM-dd" }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+
+
+    <script>
+    
+        var app = angular.module("filterApp", []);
+
+        app.controller("filterController", function($scope) {
+            var products = [
+                { productname: "Kingston DDR4", shortdescription: "16GB 2400MHz DDR4 SDRAM SO-DIMM 260-pin", instock: 81, price: 1311, instockdate: new Date("2019-03-05") },
+                { productname: "ASUS Prime Z370", shortdescription: "Solid grund som behövs för ditt första bygge", instock: 68, price: 969, instockdate: new Date("2019-03-05") },
+                { productname: "Corsair Value Select", shortdescription: "16GB 2400MHz DDR4 SDRAM DIMM 288-pin", instock: 38, price: 1039, instockdate: new Date("2019-03-05") }
+            ];
+
+            $scope.products = products;
+            $scope.rowLimit = 3;
+        });
+    
+    </script>
+
+
+</body>
+</html>

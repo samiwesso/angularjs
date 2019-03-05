@@ -1,0 +1,22 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    border: 1px solid #333;
+    padding: 10px;
+    
+}
+

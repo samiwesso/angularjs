@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - </title>
+    
+    <link rel="stylesheet" href="css/layout.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body ng-app="sortrowsApp" ng-controller="sortrowsController">
+    
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="SortData('productname')">
+                        Produktnamn 
+                        <div ng-class="getSortClass('productname')"></div> 
+                    </th>
+                    <th ng-click="SortData('category')">
+                        Kategori 
+                        <div ng-class="getSortClass('category')"></div> 
+                    </th>
+                    <th>Beskrivning</th>
+                    <th ng-click="SortData('price')">
+                        Pris 
+                        <div ng-class="getSortClass('price')"></div> 
+                    </th>
+                    <th>I lager</th>
+                    <th>Senast kollat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products | orderBy:sortColumn:reverseSort">
+                    <td>{{ product.productname }}</td>
+                    <td>{{ product.category | uppercase }}</td>
+                    <td>{{ product.shortdescription  }}</td>
+                    <td>{{ product.price | currency: "kr" }}</td>
+                    <td>{{ product.instock | number:0 }}</td>
+                    <td>{{ product.instockdate | date: "yyyy-MM-dd" }}</td>
+                </tr>
+                
+            </tbody>
+        </table>  
+    
+
+
+
+    <script>
+        var app = angular.module("sortrowsApp", []);
+
+        app.controller("sortrowsController", function($scope) {
+            var products = [
+                { productname: "Kingston DDR4", category: "Minne" , shortdescription: "16GB 2400MHz DDR4 SDRAM SO-DIMM 260-pin", instock: 81, price: 1311, instockdate: new Date("2019-03-05") },
+                { productname: "ASUS Prime Z370", category: "Dator", shortdescription: "Solid grund som behövs för ditt första bygge", instock: 68, price: 969, instockdate: new Date("2019-03-05") },
+                { productname: "Corsair Value Select", category: "Minne", shortdescription: "16GB 2400MHz DDR4 SDRAM DIMM 288-pin", instock: 38, price: 1039, instockdate: new Date("2019-03-05") }
+            ];
+
+            $scope.products = products;
+            $scope.sortColumn = "productname";   
+            $scope.reverseSort = false;
+
+            $scope.SortData = function(column) {
+                console.log(column);
+                $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+                $scope.sortColumn = column;
+                
+            }            
+
+            $scope.getSortClass = function(column) {
+                if ($scope.sortColumn == column) {
+                    return $scope.reverseSort ? 'arrow-down' : "arrow-up";
+                }
+                return '';
+            }
+        })
+    
+    </script>
+
+</body>
+</html>
