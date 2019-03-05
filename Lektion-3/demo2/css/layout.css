@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 table {
@@ -7,16 +7,33 @@ table {
 }
 
 th {
-    border: 1px solid #333;
-    padding: 10px;
+    border-bottom: 1px solid #666666;
+    padding: 20px;
     text-align: left;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 td {
-    border: 1px solid #333;
-    padding: 10px;
-    
+    border-bottom: 1px solid #cdcdcd;
+    padding: 20px;
 }
 
+.center-text {
+    text-align: center;
+}
+
+.sortby {
+    margin: 40px 15px;
+}
+
+.sortby .sorttext {
+    font-size: 1.1em;
+    margin-right: 20px;
+}
+
+.sortby select {
+    min-width: 200px;
+    padding: 10px;
+    font-size: 1.1em
+}

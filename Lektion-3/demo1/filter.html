@@ -8,39 +8,46 @@
     
     <link rel="stylesheet" href="css/layout.css">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+
 </head>
 <body ng-app="filterApp" ng-controller="filterController">
     
     <div>
-        Visa antal rader: <input type="number" step="1" min="1" max="3" ng-model="rowLimit">
-        <br>
-        <br>
+        Visa antal produkter 
+        <select ng-model="rowLimits">
+            <option value="5" >5</option>
+            <option value="10 selected">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
     </div>
+
+    <br>
+    <br>
 
     <table>
         <thead>
             <tr>
-                <th>Produktnamn</th>
+                <th>Produkt</th>
+                <th>Kategori</th>
                 <th>Beskrivning</th>
                 <th>Pris</th>
-                <th>I lager</th>
-                <th>Senast kollat</th>
+                <th>Antal i lager</th>
+                <th>Senast kontrollerat</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="product in products | limitTo:rowLimit">
-                <td>{{ product.productname | uppercase }}</td>
-                <td>{{ product.shortdescription  }}</td>
-                <td>{{ product.price | currency: "kr" }}</td>
-                <td>{{ product.instock | number:0 }}</td>
+            <tr ng-repeat="product in products | limitTo:rowLimits">
+                <td>{{ product.productname }}</td>
+                <td>{{ product.category | uppercase }}</td>
+                <td>{{ product.shortdescription }}</td>
+                <td>{{ product.price | currency: "" }}</td>
+                <td>{{ product.instock | number }}</td>
                 <td>{{ product.instockdate | date: "yyyy-MM-dd" }}</td>
             </tr>
-            
         </tbody>
     </table>
-
 
 
 
@@ -49,14 +56,23 @@
         var app = angular.module("filterApp", []);
 
         app.controller("filterController", function($scope) {
+
             var products = [
-                { productname: "Kingston DDR4", shortdescription: "16GB 2400MHz DDR4 SDRAM SO-DIMM 260-pin", instock: 81, price: 1311, instockdate: new Date("2019-03-05") },
-                { productname: "ASUS Prime Z370", shortdescription: "Solid grund som behövs för ditt första bygge", instock: 68, price: 969, instockdate: new Date("2019-03-05") },
-                { productname: "Corsair Value Select", shortdescription: "16GB 2400MHz DDR4 SDRAM DIMM 288-pin", instock: 38, price: 1039, instockdate: new Date("2019-03-05") }
+                { productname: "Apple iPhone 7", category: "Mobiltelefon", shortdescription: "32GB Svart", price: 4299 , instock : 100, instockdate: new Date("2019-03-05")  },
+                { productname: "HP Probook 640", category: "Bärbar dator", shortdescription: "Core i5 8GB 256GB SSD 14 tum", price: 6799 , instock : 100, instockdate: new Date("2019-03-04")  },
+                { productname: "Voxicon D27QO IPS", category: "Bildskärm", shortdescription: "27tum 2560 x 1440 16:9", price: 1595 , instock : 23, instockdate: new Date("2019-03-01")  },
+                { productname: "Dell UltraSharp U2417H Infinity", category: "Bildskärm", shortdescription: "23.8tum 1920 x 1080 16:9", price: 1899 , instock : 49, instockdate: new Date("2019-03-02")  },
+                { productname: "HP 250 G6", category: "Bärbar dator", shortdescription: "Core i5 8GB 256GB SSD 15.6tum", price: 4599 , instock : 1, instockdate: new Date("2019-03-02")  },
+                { productname: "Logitech MX Master for Business", category: "Möss & tangentbord", shortdescription: "Laser 1600dpi Mus Svart", price: 100 , instock : 0, instockdate: new Date("2019-03-01")  },
+                { productname: "Lenovo ThinkCentre M710q Tiny", category: "Stationära datorer", shortdescription: "Core i5 8GB 256GB SSD", price: 4799 , instock : 0, instockdate: new Date("2019-03-04")  },
+                { productname: "Apple iPhone 8 (Ej DEP)", category: "Mobiltelefon", shortdescription: "64GB Rymdgrå", price: 5599 , instock :44, instockdate: new Date("2019-03-02")  },
+                { productname: "Intel Core i9 9900K", category: "Processorer", shortdescription: "3.6GHz LGA1151 Socket", price: 4899 , instock : 99, instockdate: new Date("2019-03-05")  },
+                { productname: "Logitech MX Master 2S", category: "Möss & tangentbord", shortdescription: "Laser 4000dpi Mus Grå", price: 899 , instock : 100, instockdate: new Date("2019-03-01")  }
             ];
 
             $scope.products = products;
-            $scope.rowLimit = 3;
+            $scope.rowLimits = 5;
+
         });
     
     </script>

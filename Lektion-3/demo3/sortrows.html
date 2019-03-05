@@ -9,75 +9,90 @@
     <link rel="stylesheet" href="css/layout.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+
 </head>
 <body ng-app="sortrowsApp" ng-controller="sortrowsController">
     
-        <table>
-            <thead>
-                <tr>
-                    <th ng-click="SortData('productname')">
-                        Produktnamn 
-                        <div ng-class="getSortClass('productname')"></div> 
-                    </th>
-                    <th ng-click="SortData('category')">
-                        Kategori 
-                        <div ng-class="getSortClass('category')"></div> 
-                    </th>
-                    <th>Beskrivning</th>
-                    <th ng-click="SortData('price')">
-                        Pris 
-                        <div ng-class="getSortClass('price')"></div> 
-                    </th>
-                    <th>I lager</th>
-                    <th>Senast kollat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="product in products | orderBy:sortColumn:reverseSort">
-                    <td>{{ product.productname }}</td>
-                    <td>{{ product.category | uppercase }}</td>
-                    <td>{{ product.shortdescription  }}</td>
-                    <td>{{ product.price | currency: "kr" }}</td>
-                    <td>{{ product.instock | number:0 }}</td>
-                    <td>{{ product.instockdate | date: "yyyy-MM-dd" }}</td>
-                </tr>
-                
-            </tbody>
-        </table>  
-    
+    <table>
+        <thead>
+            <tr>
+                <th class="pointer" ng-click="sortData('productname')">
+                    Produkt 
+                    <div ng-class="getSortClass('productname')"></div> 
+                </th>
+                <th class="pointer" ng-click="sortData('category')">
+                    Kategori  
+                    <div ng-class="getSortClass('category')"></div>
+                </th>
+                <th>Beskrivning</th>
+                <th class="pointer" ng-click="sortData('shortdescription')">
+                    Pris
+                    <div ng-class="getSortClass('shortdescription')"></div>
+                </th>
+                <th class="pointer" class="center-text" ng-click="sortData('instock')">
+                    Antal i lager
+                    <div ng-class="getSortClass('instock')"></div>
+                </th>
+                <th class="pointer"  ng-click="sortData('instockdate')">
+                    Senast kontrollerat
+                    <div ng-class="getSortClass('instockdate')"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products | orderBy:sortColumn:reverseSort">
+                <td>{{ product.productname }}</td>
+                <td>{{ product.category | uppercase }}</td>
+                <td>{{ product.shortdescription }}</td>
+                <td>{{ product.price | currency: "" }}</td>
+                <td class="center-text">{{ product.instock | number }}</td>
+                <td>{{ product.instockdate | date: "yyyy-MM-dd" }}</td>
+            </tr>
+        </tbody>
+    </table>
 
 
 
     <script>
+    
         var app = angular.module("sortrowsApp", []);
 
         app.controller("sortrowsController", function($scope) {
+
             var products = [
-                { productname: "Kingston DDR4", category: "Minne" , shortdescription: "16GB 2400MHz DDR4 SDRAM SO-DIMM 260-pin", instock: 81, price: 1311, instockdate: new Date("2019-03-05") },
-                { productname: "ASUS Prime Z370", category: "Dator", shortdescription: "Solid grund som behövs för ditt första bygge", instock: 68, price: 969, instockdate: new Date("2019-03-05") },
-                { productname: "Corsair Value Select", category: "Minne", shortdescription: "16GB 2400MHz DDR4 SDRAM DIMM 288-pin", instock: 38, price: 1039, instockdate: new Date("2019-03-05") }
+                { productname: "Apple iPhone 7", category: "Mobiltelefon", shortdescription: "32GB Svart", price: 4299 , instock : 100, instockdate: new Date("2019-03-05")  },
+                { productname: "HP Probook 640", category: "Bärbar dator", shortdescription: "Core i5 8GB 256GB SSD 14 tum", price: 6799 , instock : 100, instockdate: new Date("2019-03-04")  },
+                { productname: "Voxicon D27QO IPS", category: "Bildskärm", shortdescription: "27tum 2560 x 1440 16:9", price: 1595 , instock : 23, instockdate: new Date("2019-03-01")  },
+                { productname: "Dell UltraSharp U2417H Infinity", category: "Bildskärm", shortdescription: "23.8tum 1920 x 1080 16:9", price: 1899 , instock : 49, instockdate: new Date("2019-03-02")  },
+                { productname: "HP 250 G6", category: "Bärbar dator", shortdescription: "Core i5 8GB 256GB SSD 15.6tum", price: 4599 , instock : 1, instockdate: new Date("2019-03-02")  },
+                { productname: "Logitech MX Master for Business", category: "Möss & tangentbord", shortdescription: "Laser 1600dpi Mus Svart", price: 100 , instock : 0, instockdate: new Date("2019-03-01")  },
+                { productname: "Lenovo ThinkCentre M710q Tiny", category: "Stationära datorer", shortdescription: "Core i5 8GB 256GB SSD", price: 4799 , instock : 0, instockdate: new Date("2019-03-04")  },
+                { productname: "Apple iPhone 8 (Ej DEP)", category: "Mobiltelefon", shortdescription: "64GB Rymdgrå", price: 5599 , instock :44, instockdate: new Date("2019-03-02")  },
+                { productname: "Intel Core i9 9900K", category: "Processorer", shortdescription: "3.6GHz LGA1151 Socket", price: 4899 , instock : 99, instockdate: new Date("2019-03-05")  },
+                { productname: "Logitech MX Master 2S", category: "Möss & tangentbord", shortdescription: "Laser 4000dpi Mus Grå", price: 899 , instock : 100, instockdate: new Date("2019-03-01")  }
             ];
 
             $scope.products = products;
-            $scope.sortColumn = "productname";   
+            $scope.sortColumn = "productname";
             $scope.reverseSort = false;
 
-            $scope.SortData = function(column) {
-                console.log(column);
-                $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+            $scope.sortData = function(column) {
+                $scope.reverseSort = ($scope.sortColumn == column) ?  !$scope.reverseSort : false;
                 $scope.sortColumn = column;
-                
-            }            
+            };
 
             $scope.getSortClass = function(column) {
+                
                 if ($scope.sortColumn == column) {
-                    return $scope.reverseSort ? 'arrow-down' : "arrow-up";
+                    return $scope.reverseSort ? 'down-arrow' : 'up-arrow';
                 }
                 return '';
             }
-        })
+
+        });
     
     </script>
+
 
 </body>
 </html>
