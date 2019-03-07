@@ -25,27 +25,27 @@ td {
 
 .searchby {
     margin: 40px 15px;
+    font-size: 1.1em;
 }
 
 .searchby .searchtext {
-    font-size: 1.1em;
     margin-right: 20px;
 }
 
-.searchby .wholewords {
+.searchby input {
+    padding: 5px 10px;
     font-size: 1.1em;
-    margin-right: 5px;
 }
 
 .searchby input[type = "search"] {
     min-width: 400px;
-    padding: 5px 10px;
-    font-size: 1.1em;
 }
 
 .searchby input[type = "checkbox"] {
-    margin-left:50px;
+    margin-left: 50px;
     min-width: 20px;
-    padding: 5px 10px;
-    font-size: 1.1em;
+}
+
+.searchby .wholeword {
+    margin-left: 10px;
 }

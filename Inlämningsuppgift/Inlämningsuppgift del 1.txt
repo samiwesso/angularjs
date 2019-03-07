@@ -1,0 +1,16 @@
+Du ska i denna inlämningsuppgift utnyttja dina kunskaper och färdigheter som du fått från föregående kurs och göra om design till något verkligt. Denna inlämningsuppgift ligger till grund för kommande inlämningsuppgifter.
+
+Du har under inlämningsuppgift del 1 tillgång till en shop.psd fil. Denna fil innehåller grafisk design för att strukturera upp en webshop.
+
+Din uppgift är att just omvandla detta designförslag till att bli något verkligt. Sidan du skapar ska se likadan ut i slutändan som denna designfil som du tagit del av.
+
+Du behöver inte ha någon funktionalitet på saker såsom:
+
+- sökfunktionalitet
+- sortering
+- ändring av layout
+- rating av böcker
+- paging av sidor
+ 
+
+Däremot ska alla grafika objekt som visas finnas. Funktionalitet på sidan ska vi bygga upp vart eftersom. Du ska använda dig av git och github under hela processen. Förslagsvis gör en ny git-repository för denna uppgift. I slutet av kursen ska du sedan lämna in din githublänk på pingpong för redovisning.
