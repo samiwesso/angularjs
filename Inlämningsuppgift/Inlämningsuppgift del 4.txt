@@ -1,0 +1,10 @@
+Du ska i denna inlämningsuppgift bygga vidare på Inlämningsuppgift del 1 och 2 och 3. Se till att du har allt klart i Inlämningsuppgift del 1, 2 och 3 innan du påbörjar denna del.
+
+Funktionalitet som ska fungera i denna inlämningsuppgiftsdel:
+
+- Bygg ett rest-api med hjälp av Node JS och Express JS
+- Flytta över dina produkter till detta API
+- Använd service funktionaliteten i Angular JS för att hämta in informationen till din sida
+ 
+
+Du ska använda dig av git och github under hela processen. I slutet av kursen ska du sedan lämna in din githublänk på pingpong för redovisning den ska då inkludera samtliga inlämningsuppgiftsdelar som du gått igenom. I slutändan ska en komplett sida visas.

@@ -1,0 +1,21 @@
+{
+  "name": "demo1",
+  "version": "1.0.0",
+  "description": "first rest api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "demo",
+    "frontend",
+    "backend"
+  ],
+  "author": "Hans Mattin-Lassei",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
