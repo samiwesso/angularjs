@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
-
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 // http://locahost:5000/api/products
 const productRoutes = require('./routes/products');
@@ -24,13 +27,6 @@ app.use('/', (req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    if(req.method === 'OPTIONS') {
-        res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
-        return res.status(200).json({});
-    }
-})
+
 
 module.exports = app;

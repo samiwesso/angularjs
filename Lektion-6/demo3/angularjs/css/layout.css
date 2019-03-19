@@ -1,0 +1,51 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: 1px solid #666666;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    border-bottom: 1px solid #cdcdcd;
+    padding: 20px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.searchby {
+    margin: 40px 15px;
+    font-size: 1.1em;
+}
+
+.searchby .searchtext {
+    margin-right: 20px;
+}
+
+.searchby input {
+    padding: 5px 10px;
+    font-size: 1.1em;
+}
+
+.searchby input[type = "search"] {
+    min-width: 400px;
+}
+
+.searchby input[type = "checkbox"] {
+    margin-left: 50px;
+    min-width: 20px;
+}
+
+.searchby .wholeword {
+    margin-left: 10px;
+}
