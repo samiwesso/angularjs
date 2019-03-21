@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="demoController">
+    
+    <table>
+        <tr>
+            <td>Din Text: </td>
+            <td><input type="text" ng-model="input"></td>
+        </tr>
+        <tr>
+            <td>Resultatet: </td>
+            <td><input type="text" ng-model="output"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" ng-click="changeString(input)" Value="Ändra">
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>Tal 1: <input type="number" ng-model="nr1"></td>
+            <td>Tal 2: <input type="number" ng-model="nr2"></td>
+        </tr>
+        <tr>
+            <td colspan>Resultatet är (+): <input type="text" ng-model="addcalcoutput"</td>
+        </tr>
+        <tr>
+            <td colspan>Resultatet är (-): <input type="text" ng-model="subcalcoutput"</td>
+        </tr>        
+        <tr>
+            <td colspan>Resultatet är (/): <input type="text" ng-model="divcalcoutput"</td>
+        </tr>
+        <tr>
+            <td colspan>Resultatet är (*): <input type="text" ng-model="multicalcoutput"</td>
+        </tr> 
+        <tr>
+            <td colspan="2">
+                <input type="button" ng-click="calculate(nr1, nr2)" Value="Räkna ut">
+            </td>
+        </tr>        
+    </table>
+
+</body>
+</html>
