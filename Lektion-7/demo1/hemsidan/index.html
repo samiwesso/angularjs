@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo1App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Demo - </title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="demo1Controller">
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products">
+                <td>{{ product.productname }}</td>
+                <td>{{ product.price }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+    
+        var app = angular
+            .module("demo1App", [])
+            .controller("demo1Controller", function($scope, $http) {
+
+                $http.get("http://10.153.36.43:5000/api/products").then(function(res) {
+                    $scope.products = res.data;
+                })
+
+            })
+    </script>
+
+
+</body>
+</html>
