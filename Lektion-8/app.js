@@ -1,5 +1,4 @@
 (function () {
-
     angular
         .module("demoApp", ["ngRoute", "ngCookies"])
         .config(config)
@@ -31,8 +30,7 @@
 
         $rootScope.globals = $cookies.getObject("globals") || {};
         if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common["Authorization"] = 'Basic ' + 
-                $rootScope.globals.currentUser.authdata;
+            $http.defaults.headers.common["Authorization"] = 'Basic ' +  $rootScope.globals.currentUser.authdata;
         }
 
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -43,7 +41,5 @@
                 $location.path("/login");
             }
         })
-
     }
-
 })();
