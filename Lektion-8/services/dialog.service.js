@@ -45,8 +45,8 @@
         }
 
 
-        service.Success = Success();
-        service.Error = Error();
+        service.Success = Success;
+        service.Error = Error;
 
         initService();
         return service;

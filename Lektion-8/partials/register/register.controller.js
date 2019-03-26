@@ -4,7 +4,7 @@
         .module("demoApp")
         .controller("registerController", registerController)
 
-    registerController.$inject(["userService", "$location", "$rootScope", "dialogService"]);
+    registerController.$inject = ["userService", "$location", "$rootScope", "dialogService"];
     function registerController(userService, $location, $rootScope, dialogService) {
 
         var vm = this;
@@ -24,4 +24,4 @@
         }
 
     };  
-});
+})();
