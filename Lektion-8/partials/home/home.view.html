@@ -1,0 +1,24 @@
+<h1>Hi {{vm.user.firstname}}!</h1>
+<p><a href="#!/login" class="btn btn-primary">Logout</a></p>
+<br>
+<h3>All registered users:</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in vm.allUsers">
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.firstname }} {{ user.lastname }}</td>
+            <td><a class="btn btn-sm btn-danger text-white" ng-click="vm.deleteUser(user.id)">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+

@@ -13,7 +13,7 @@
             vm.dataLoading = true;
 
             authService.Login(vm.username, vm.password, function(res) {
-                if(res.success) {
+                if(res.success) {                   
                     authService.SetCredentials(vm.username, vm.password);
                     $location.path("/");
                 } else {
