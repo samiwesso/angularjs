@@ -10,6 +10,6 @@ const userSchema = db.Schema({
     created: { type: Date, default: Date.now },
     modified: { type: Date, default: Date.now }
 
-})
+});
 
 module.exports = db.model("User", userSchema);
