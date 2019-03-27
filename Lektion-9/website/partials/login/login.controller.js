@@ -15,7 +15,7 @@
             authService.Login(vm.email, vm.password) 
                 .then(function (res) {
                     if(res.success) {
-                        authService.SetCredentials(res.token);
+                        authService.SetCredentials(res.id, res.token);
                         $location.path("/");
                     } else {
                         dialogService.Error(res.message);

@@ -30,8 +30,8 @@
 
         $rootScope.globals = $cookies.getObject("globals") || {};
         if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common["Authorization"] = 'Basic ' +  $rootScope.globals.currentUser.token;
-            console.log($http.defaults.headers.common["Authorization"])
+            $http.defaults.headers.common["Authorization"] = 'Bearer ' +  $rootScope.globals.currentUser.token;
+           
         }
 
         $rootScope.$on("$locationChangeStart", function(event, next, current) {

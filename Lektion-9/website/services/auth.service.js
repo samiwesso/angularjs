@@ -18,15 +18,16 @@
                 .then(handleResponse, handleResponse)
         }
 
-        function SetCredentials(token) {
+        function SetCredentials(id, token) {
            
             $rootScope.globals = {
                 currentUser: {
+                    id: id,
                     token: token
                 }
             }
 
-            $http.defaults.headers.common["Authorization"] = "Basic " + token;
+            $http.defaults.headers.common["Authorization"] = "Bearer " + token;
 
             var cookieExp = new Date();
             cookieExp.setDate(cookieExp.getDate() + 7);
@@ -38,7 +39,7 @@
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookies.remove("globals");
-            $http.defaults.headers.common.Authorization = "Basic";
+            $http.defaults.headers.common.Authorization = "Bearer";
         }
 
         service.Login = Login;

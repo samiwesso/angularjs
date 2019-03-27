@@ -67,7 +67,7 @@ exports.login = function(req, res) {
 
                     if(result) {
                         const token = jwt.sign( 
-                            { userId: user[0]._id, email: user[0].email },
+                            { id: user[0]._id, email: user[0].email },
                             process.env.PRIVATE_SECRET_KEY,
                             { expiresIn: "24h" }                        
                         )
@@ -75,7 +75,8 @@ exports.login = function(req, res) {
                         return res.status(200).json( {
                             message: "Authentication was successful",
                             success: true,
-                            token: token
+                            token: token,
+                            id: user[0]._id
                         })
                     }
 
@@ -86,4 +87,50 @@ exports.login = function(req, res) {
                 })
             }
         })
+}
+
+exports.getUsers = function(req, res) {
+    User.find()
+        .exec()
+        .then(users => res.status(200).json(users))
+        .catch(() => res.status(500).json({ 
+            errorcode: "500",
+            message: "Something went wrong",
+            success: false
+         }));
+}
+
+exports.getUser = (req, res) => {
+    User.find( { _id: req.params.id } )
+        .exec()
+        .then((user) => res.status(200).json(user))
+        .catch(() => res.status(500).json({ 
+            errorcode: "500",
+            message: "Something went wrong",
+            success: false
+        }));
+}
+
+exports.updateUser = (req, res) => {
+    User.updateOne( { _id: req.params.id } )
+        .exec()
+        .then((user) => res.status(200).json({message: `User ${user.firstname} ${user.lastname} was updated.`}))
+        .catch(() => res.status(500).json({ 
+            errorcode: "500",
+            message: "Something went wrong",
+            success: false
+        }));
+    }
+
+exports.deleteUser = (req, res) => {
+    User.deleteOne( { _id: req.params.id } )
+        .exec()
+        .then(user => res.status(200).json({
+            message: `User was removed.`
+        }))
+        .catch( () => res.status(500).json({ 
+            errorcode: "500",
+            message: "Something went wrong",
+            success: false
+        }));
 }
