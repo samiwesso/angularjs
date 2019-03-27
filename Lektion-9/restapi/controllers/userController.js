@@ -30,13 +30,15 @@ exports.register = function(req, res) {
                         user.save()
                             .then(function() {
                                 res.status(201).json({
-                                    message: `User ${req.body.firstname} ${req.body.lastname} was created successfully.`
+                                    message: `User ${req.body.firstname} ${req.body.lastname} was created successfully.`,
+                                    success: true
                                 })
                             })
                             .catch(function(err) {
                                 res.status(500).json({
                                     message: `Failed to create user ${req.body.firstname} ${req.body.lastname}.`,
-                                    errorcode: "500"
+                                    errorcode: "500",
+                                    success: false
                                 })
                             })
                     }
@@ -51,13 +53,15 @@ exports.login = function(req, res) {
             if(user.length === 0) {
                 return res.status(401).json({
                     message: "User email or password is incorrect",
-                    message2: "No user with this email address exists."
+                    message2: "No user with this email address exists.",
+                    success: false
                 })
             } else {
                 encrypt.compare(req.body.password, user[0].password, function(err, result) {
                     if(err) {
                         return res.status(401).json({
-                            message: "User email or password is incorrect"
+                            message: "User email or password is incorrect",
+                            success: false
                         })
                     } 
 
@@ -69,12 +73,15 @@ exports.login = function(req, res) {
                         )
 
                         return res.status(200).json( {
-                            message: "Authentication was successful"
+                            message: "Authentication was successful",
+                            success: true,
+                            token: token
                         })
                     }
 
                     return res.status(401).json({
-                        message: "User email or password is incorrect"
+                        message: "User email or password is incorrect",
+                        success: false
                     })
                 })
             }
