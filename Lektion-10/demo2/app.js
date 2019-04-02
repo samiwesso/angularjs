@@ -11,10 +11,7 @@ app.controller("demoController", function($scope) {
 
     $scope.products = products;
     $scope.rating = function(input) {
-        const starProcentage = (input / starsTotal) * 100;
-        const starProcentageRounded = `${Math.round(starProcentage / 10) * 10}%`;
-        
-        return starProcentageRounded;
+        return `${Math.round(((input / starsTotal) * 100) / 10) * 10}%`;
     } 
 
 
