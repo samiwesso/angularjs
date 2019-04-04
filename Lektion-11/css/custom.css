@@ -1,0 +1,34 @@
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: 1px solid #666666;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    border-bottom: 1px solid #cdcdcd;
+    padding: 20px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.quantity {
+   width: 100px; 
+}
+
+.remove-item {
+    cursor: pointer;
+    color: black;
+}
+
+.remove-item:hover {
+    cursor: pointer;
+    color: darkred;
+}
