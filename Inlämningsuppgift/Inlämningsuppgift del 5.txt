@@ -1,0 +1,12 @@
+﻿Du ska i denna inlämningsuppgift bygga vidare på Inlämningsuppgift del 1, 2, 3 och 4. Se till att du har allt klart i Inlämningsuppgift del 1, 2, 3 och 4 innan du påbörjar denna del.
+
+Funktionalitet som ska fungera i denna inlämningsuppgiftsdel:
+
+- Du ska lägga på möjligheten att kunna logga in och registrera dig som användare.
+- Användaruppgifterna ska lagras i din NoSQL databas.
+- Du ska även se till att det finns en sida som heter Mina Sidor, men den ska vara låst så att du bara kommer åt den om du är inloggad.
+- När du är inloggad ska du även kunna logga ut och då ska du förbli utloggad. Annars om du är inloggad ska du förbli inloggad i 60 minuter.
+- Inloggningnen och registreringen behöver inte ligga på en separat sida utan kan använda sig av modal om man så vill, eller egna sidor om du hellre vill det.
+ 
+
+Du ska använda dig av git och github under hela processen. I slutet av kursen ska du sedan lämna in din githublänk på pingpong för redovisning den ska då inkludera samtliga inlämningsuppgiftsdelar som du gått igenom. I slutändan ska en komplett sida visas.

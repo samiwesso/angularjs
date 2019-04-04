@@ -1,0 +1,12 @@
+﻿Du ska i denna inlämningsuppgift bygga vidare på Inlämningsuppgift del 1, 2, 3, 4 och 5. Se till att du har allt klart i Inlämningsuppgift del 1, 2, 3, 4 och 5 innan du påbörjar denna del.
+
+Funktionalitet som ska fungera i denna inlämningsuppgiftsdel:
+
+- Du ska lägga på möjligheten att kunna lägga in en produkt i en kundvagn.
+- Kundvagnen ska finnas kvar även om du stänger ner sidan och öppnar upp den igen. Dock inte sparas ner i din NoSQL databas.
+- Kundvagnen ska finnas kvar i 7 dagar efter att man lagt in produkter i den. Efter dessa 7 dagar så ska allt rensas och vara tomt.
+- För att kunna gå vidare med beställningen måste man registera sig eller logga in. Det ska därför finnas en länk nära till hands i kundvagnen som gör detta möjligt.
+- Inloggningnen och registreringen behöver inte ligga på en separat sida utan kan använda sig av modal om man så vill, eller egna sidor om du hellre vill det.
+ 
+
+Du ska använda dig av git och github under hela processen. I slutet av kursen ska du sedan lämna in din githublänk på pingpong för redovisning den ska då inkludera samtliga inlämningsuppgiftsdelar som du gått igenom. I slutändan ska en komplett sida visas.
