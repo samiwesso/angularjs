@@ -40,6 +40,7 @@
 
         <div class="mt-5 pt-4">
             <h5>Your Shopping Cart</h5>
+            <p>{{ emptycart }}</p>
             <table>
                 <tr ng-repeat="product in cart">
                     <td>{{product.quantity}} x {{ product.name }}</td>
@@ -47,6 +48,7 @@
                     <td><button class="btn btn-link remove-item " ng-click="removeItem(product)"><i class="fas fa-trash-alt"></i></button></td>
                 </tr>
             </table>
+            <h4 class="mt-2"><i class="fas fa-shopping-cart"></i> Total: {{ getTotal() }} SEK</h4>
         </div>
 
     </div>    
