@@ -38,6 +38,10 @@ angular
             return product.quantity * product.price;
         }
 
+        $scope.getProductQuantity = function(product) {
+            return product.quantity;
+        }
+
         $scope.getTotal = function() {
             var total = _.reduce($scope.cart, function(sum, product) {
                 return sum + $scope.getProductCost(product);
@@ -51,4 +55,21 @@ angular
             }   
             return total;
         }
+
+        $scope.getQuantity = function() {
+            var quantity = _.reduce($scope.cart, function(sum, product) {
+                return sum + $scope.getProductQuantity(product);
+            }, 0);
+ 
+            if(quantity === 0) {
+                $scope.badgeColor = "badge-secondary"
+            } else {
+                $scope.badgeColor = "badge-danger"
+            }
+
+
+            return quantity;
+        }
+        
+
     })
